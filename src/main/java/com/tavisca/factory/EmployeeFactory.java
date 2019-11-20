@@ -15,10 +15,10 @@ public class EmployeeFactory {
         if(employee.getDepartment().equalsIgnoreCase("HR")){
             return new HRDataManager();
         }
-        else if(employee.getDepartment().equalsIgnoreCase("Employee")){
-            return new EmployeeDataManager();
-        }
+//        else if(employee.getDepartment().equalsIgnoreCase("Employee")){
+//            return new EmployeeDataManager();
+//        }
         else
-            return null; // will be updated
+            return new EmployeeDataManager(); // will be updated
     }
 }

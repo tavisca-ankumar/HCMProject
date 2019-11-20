@@ -56,4 +56,6 @@ public abstract class DataManagerAdaptor implements DataManager{
     public boolean updateEmployeeDepartment(int empNo, String department) throws SQLException {
         return employeeCrudOperation.updateEmployeeDepartment(empNo,department);
     }
+
+    //public void fillAppraisalForm(int empNo, )
 }
