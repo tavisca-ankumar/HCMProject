@@ -13,6 +13,7 @@ public class MainHCM {
     public static void main(String[] args) {
 
         EmployeeOperator employeeOperator = new EmployeeOperator();
+
         try(BufferedReader br = UserReader.getInstance()) {
             System.out.println("Enter your employee Id");
             int empNo = Integer.parseInt(br.readLine());

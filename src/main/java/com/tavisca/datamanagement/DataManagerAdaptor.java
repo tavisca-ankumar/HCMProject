@@ -2,10 +2,8 @@ package com.tavisca.datamanagement;
 
 import com.tavisca.container.Employee;
 import com.tavisca.database.EmployeeCrudOperation;
-import com.tavisca.operation.EmployeeOperator;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class DataManagerAdaptor implements DataManager{
@@ -30,17 +28,17 @@ public abstract class DataManagerAdaptor implements DataManager{
     }
 
     @Override
-    public ArrayList<Employee> findByEmpName(String empName) throws SQLException {
+    public List<Employee> findByEmpName(String empName) throws SQLException {
         return employeeCrudOperation.findByName(empName);
     }
 
     @Override
-    public ArrayList<Employee> findByDepartment(String department) throws SQLException {
+    public List<Employee> findByDepartment(String department) throws SQLException {
         return employeeCrudOperation.findByDepartment(department);
     }
 
     @Override
-    public ArrayList<Employee> findBySkill(String skill) throws SQLException {
+    public List<Employee> findBySkill(String skill) throws SQLException {
         return employeeCrudOperation.findBySkill(skill);
     }
 

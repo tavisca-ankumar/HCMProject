@@ -23,7 +23,7 @@ public class EmployeeCrudOperation {
         }
     }
 
-    public ArrayList findByName(String empName) throws SQLException {
+    public List<Employee> findByName(String empName) throws SQLException {
         ArrayList<Employee> al = new ArrayList<Employee>();
         PreparedStatement st = conn.prepareStatement("select * from employee where empName=?");
         st.setString(1, empName);
@@ -44,7 +44,7 @@ public class EmployeeCrudOperation {
         return tempEmployee;
     }
 
-    public ArrayList findByDepartment(String skillSet) throws SQLException {
+    public List<Employee> findByDepartment(String skillSet) throws SQLException {
         ArrayList<Employee> al = new ArrayList<Employee>();
         PreparedStatement st = conn.prepareStatement("select * from employee where department=?");
         st.setString(1,skillSet);
@@ -56,7 +56,7 @@ public class EmployeeCrudOperation {
         return al;
     }
 
-    public ArrayList findBySkill(String skill) throws SQLException {
+    public List<Employee> findBySkill(String skill) throws SQLException {
         ArrayList<Employee> al = new ArrayList<Employee>();
         PreparedStatement st = conn.prepareStatement("select * from employee where skillSet like ?");
         String likeSkill = "%"+skill+"%";

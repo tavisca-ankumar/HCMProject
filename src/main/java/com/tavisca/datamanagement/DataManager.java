@@ -3,17 +3,17 @@ package com.tavisca.datamanagement;
 import com.tavisca.container.Employee;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public interface DataManager {
 
     Employee findByEmpNo(int empNo) throws SQLException;
 
-    ArrayList<Employee> findByEmpName(String empName) throws SQLException;
+    List<Employee> findByEmpName(String empName) throws SQLException;
 
-    ArrayList<Employee> findByDepartment(String department) throws SQLException;
+    List<Employee> findByDepartment(String department) throws SQLException;
 
-    ArrayList<Employee> findBySkill(String skill) throws SQLException;
+    List<Employee> findBySkill(String skill) throws SQLException;
 
     boolean updateEmployeeSkillSet(int empNo, String skill) throws SQLException;
 
