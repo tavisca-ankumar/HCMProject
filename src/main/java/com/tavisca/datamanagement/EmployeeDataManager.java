@@ -1,9 +1,6 @@
 package com.tavisca.datamanagement;
 
 import com.tavisca.container.Employee;
-import com.tavisca.service.UserReader;
-
-import java.io.BufferedReader;
 
 public class EmployeeDataManager extends DataManagerAdaptor{
 

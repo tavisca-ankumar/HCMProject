@@ -4,7 +4,7 @@ import com.tavisca.container.Employee;
 import com.tavisca.database.EmployeeCrudOperation;
 
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeOperator {
 
@@ -18,15 +18,15 @@ public class EmployeeOperator {
         return employeeCrudOperation.findByEmpNo(empNo);
     }
 
-    public ArrayList<Employee> findByEmpName(String empName) throws SQLException {
+    public List<Employee> findByEmpName(String empName) throws SQLException {
         return employeeCrudOperation.findByName(empName);
     }
 
-    public ArrayList<Employee> findByDepartment(String department) throws SQLException {
+    public List<Employee> findByDepartment(String department) throws SQLException {
         return employeeCrudOperation.findByDepartment(department);
     }
 
-    public ArrayList<Employee> findBySkill(String skill) throws SQLException {
+    public List<Employee> findBySkill(String skill) throws SQLException {
         return employeeCrudOperation.findBySkill(skill);
     }
 
