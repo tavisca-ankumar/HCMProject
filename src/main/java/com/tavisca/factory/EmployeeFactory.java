@@ -13,10 +13,12 @@ public class EmployeeFactory {
     public static DataManager getDataManager(Employee employee) throws SQLException {
 
         if(employee.getDepartment().equalsIgnoreCase("HR")){
-            return new HRDataManager(employee);
+            return new HRDataManager();
         }
-        else{
-            return new EmployeeDataManager(employee);
+        else if(employee.getDepartment().equalsIgnoreCase("Employee")){
+            return new EmployeeDataManager();
         }
+        else
+            return null; // will be updated
     }
 }

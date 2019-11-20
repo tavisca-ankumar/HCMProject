@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 
 public class UserReader {
 
-    static BufferedReader br;
+    private static BufferedReader br;
 
     public static BufferedReader getInstance()  {
         if(br == null){
@@ -13,5 +13,4 @@ public class UserReader {
         }
         return br;
     }
-
 }

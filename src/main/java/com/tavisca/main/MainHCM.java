@@ -2,8 +2,6 @@ package com.tavisca.main;
 
 import com.tavisca.container.Employee;
 import com.tavisca.datamanagement.DataManager;
-import com.tavisca.datamanagement.EmployeeDataManager;
-import com.tavisca.datamanagement.HRDataManager;
 import com.tavisca.factory.EmployeeFactory;
 import com.tavisca.operation.EmployeeOperator;
 import com.tavisca.service.UserReader;
@@ -19,16 +17,15 @@ public class MainHCM {
             System.out.println("Enter your employee Id");
             int empNo = Integer.parseInt(br.readLine());
 
-            Employee employee = employeeOperator.searchEmpNo(empNo);
-
+            Employee employee = employeeOperator.findByEmpNo(empNo);
             DataManager dataManager = EmployeeFactory.getDataManager(employee);
 
-            if(dataManager instanceof  HRDataManager){
-
-            }
-            else if(dataManager instanceof EmployeeDataManager){
-
-            }
+//            if(dataManager instanceof  HRDataManager){
+//
+//            }
+//            else if(dataManager instanceof EmployeeDataManager){
+//
+//            }
 
             int choice = Integer.parseInt(br.readLine());
             System.out.println("Choose the option");
@@ -40,8 +37,6 @@ public class MainHCM {
 
             switch (choice){
                 case 1:
-                    dataManager.viewEmployee();
-
 
             }
 

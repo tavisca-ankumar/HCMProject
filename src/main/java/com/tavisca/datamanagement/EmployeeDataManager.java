@@ -5,32 +5,15 @@ import com.tavisca.service.UserReader;
 
 import java.io.BufferedReader;
 
-public class EmployeeDataManager implements DataManager{
-
-     Employee employee;
-
-    public EmployeeDataManager(Employee emp){
-        this.employee = emp;
-    }
+public class EmployeeDataManager extends DataManagerAdaptor{
 
     @Override
-    public void viewEmployee() {
-
-    }
-
-    @Override
-    public boolean updateEmployee() {
-        BufferedReader br = UserReader.getInstance();
+    public boolean deleteEmployee(int empNo) {
         return false;
     }
 
     @Override
-    public boolean deleteEmployee() {
-        return false;
-    }
-
-    @Override
-    public boolean addEmployee() {
+    public boolean addEmployee(Employee employee) {
         return false;
     }
 }

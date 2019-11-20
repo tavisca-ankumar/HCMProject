@@ -2,31 +2,17 @@ package com.tavisca.datamanagement;
 
 import com.tavisca.container.Employee;
 
-public class HRDataManager implements DataManager {
+import java.sql.SQLException;
 
-    Employee employee;
+public class HRDataManager extends DataManagerAdaptor{
 
-    public HRDataManager(Employee emp){
-        this.employee = emp;
+    @Override
+    public boolean deleteEmployee(int empNo) throws SQLException {
+        return getEmployeeCrudOperation().deleteEmployee(empNo);
     }
 
     @Override
-    public void viewEmployee() {
-
-    }
-
-    @Override
-    public boolean updateEmployee() {
-        return false;
-    }
-
-    @Override
-    public boolean deleteEmployee() {
-        return false;
-    }
-
-    @Override
-    public boolean addEmployee() {
-        return false;
+    public boolean addEmployee(Employee employee) throws SQLException {
+        return getEmployeeCrudOperation().addEmployee(employee);
     }
 }

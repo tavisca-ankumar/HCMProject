@@ -11,8 +11,7 @@ import java.util.stream.Collectors;
 
 public class EmployeeCrudOperation {
 
-    Connection conn;
-
+    private Connection conn;
 
     public EmployeeCrudOperation() {
         try {
@@ -81,7 +80,7 @@ public class EmployeeCrudOperation {
         return tempEmployee;
     }
 
-    public boolean insertEmployee(Employee employee) throws SQLException {
+    public boolean addEmployee(Employee employee) throws SQLException {
         PreparedStatement preparedStatement = conn.prepareStatement("insert into employee values" +
                 "(?,?,?,?)");
         preparedStatement.setInt(1, employee.getEmpNo());
@@ -93,7 +92,6 @@ public class EmployeeCrudOperation {
     }
 
     public boolean deleteEmployee(int empNo) throws SQLException {
-
         moveEmployeeToHistory(empNo);
         PreparedStatement preparedStatement = conn.prepareStatement("delete from " +
                 "employee where empNo=?");
@@ -104,7 +102,7 @@ public class EmployeeCrudOperation {
     public void moveEmployeeToHistory(int empNo) throws SQLException {
         Employee employee = findByEmpNo(empNo);
 
-         PreparedStatement preparedStatement = conn.prepareStatement("insert into employeeHistory values"+
+        PreparedStatement preparedStatement = conn.prepareStatement("insert into employeeHistory values"+
                  "(?,?,?,?)");
         preparedStatement.setInt(1, empNo);
         preparedStatement.setString(2, employee.getEmpName());
@@ -137,7 +135,7 @@ public class EmployeeCrudOperation {
 
         PreparedStatement preparedStatement = conn.prepareStatement("update employee set department = ? " +
                 "where empNo=?");
-        preparedStatement.setString(1,department);
+        preparedStatement.setString(1, department);
         preparedStatement.setInt(2, empNo);
         return preparedStatement.execute();
     }
