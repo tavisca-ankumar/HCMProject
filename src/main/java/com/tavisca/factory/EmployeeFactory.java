@@ -4,6 +4,7 @@ import com.tavisca.container.Employee;
 import com.tavisca.datamanagement.DataManager;
 import com.tavisca.datamanagement.EmployeeDataManager;
 import com.tavisca.datamanagement.HRDataManager;
+import com.tavisca.datamanagement.ReviewerDataManager;
 import com.tavisca.operation.EmployeeOperator;
 
 import java.sql.SQLException;
@@ -15,9 +16,9 @@ public class EmployeeFactory {
         if(employee.getDepartment().equalsIgnoreCase("HR")){
             return new HRDataManager();
         }
-//        else if(employee.getDepartment().equalsIgnoreCase("Employee")){
-//            return new EmployeeDataManager();
-//        }
+        else if(employee.getDepartment().equalsIgnoreCase("Reviewer")){
+            return new ReviewerDataManager();
+        }
         else
             return new EmployeeDataManager(); // will be updated
     }

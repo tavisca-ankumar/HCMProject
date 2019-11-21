@@ -1,6 +1,8 @@
 package com.tavisca.datamanagement;
 
 import com.tavisca.container.Employee;
+import com.tavisca.container.EmployeeAppraisalForm;
+import com.tavisca.database.EmployeeAppraisalDbOperation;
 import com.tavisca.database.EmployeeCrudOperation;
 
 import java.sql.SQLException;
@@ -9,9 +11,11 @@ import java.util.List;
 public abstract class DataManagerAdaptor implements DataManager{
 
     private EmployeeCrudOperation employeeCrudOperation;
+    private EmployeeAppraisalDbOperation employeeAppraisalDbOperation;
 
     public DataManagerAdaptor(){
         employeeCrudOperation = new EmployeeCrudOperation();
+        employeeAppraisalDbOperation = new EmployeeAppraisalDbOperation();
     }
 
     public EmployeeCrudOperation getEmployeeCrudOperation() {
@@ -57,5 +61,8 @@ public abstract class DataManagerAdaptor implements DataManager{
         return employeeCrudOperation.updateEmployeeDepartment(empNo,department);
     }
 
-    //public void fillAppraisalForm(int empNo, )
+    @Override
+    public void fillAppraisalForm(EmployeeAppraisalForm employeeAppraisalForm) throws SQLException {
+        employeeAppraisalDbOperation.addAppraisal(employeeAppraisalForm);
+    }
 }
