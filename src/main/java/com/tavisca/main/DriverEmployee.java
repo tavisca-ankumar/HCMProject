@@ -1,6 +1,7 @@
 package com.tavisca.main;
 
 import com.tavisca.container.Employee;
+import com.tavisca.container.EmployeeAppraisalForm;
 import com.tavisca.datamanagement.DataManager;
 import com.tavisca.service.UserReader;
 
@@ -33,21 +34,25 @@ public class DriverEmployee {
 
         switch (choice){
             case 1:
+                System.out.println("Enter Employee No : ");
                 int empNo = Integer.parseInt(br.readLine());
                 System.out.println(dataManager.findByEmpNo(empNo));
                 break;
 
             case 2:
+                System.out.println("Enter Employee Name : ");
                 String empName = br.readLine();
                 System.out.println(dataManager.findByEmpName(empName));
                 break;
 
             case 3:
+                System.out.println("Enter Department : ");
                 String department = br.readLine();
                 System.out.println(dataManager.findByDepartment(department));
                 break;
 
             case 4:
+                System.out.println("Enter Skill : ");
                 String skill = br.readLine();
                 System.out.println(dataManager.findBySkill(skill));
                 break;
@@ -60,26 +65,29 @@ public class DriverEmployee {
     public void updateEmployee(Employee employee) throws IOException, SQLException {
         System.out.println();
         System.out.println("Choose the option for Update");
-        System.out.println("1. Update By Employee Name");
-        System.out.println("2. Update By Department");
-        System.out.println("3. Update By Skill");
+        System.out.println("1. Update Employee Name");
+        System.out.println("2. Update Department");
+        System.out.println("3. Update Skill");
 
         int choice = Integer.parseInt(br.readLine());
 
         switch (choice){
             case 1:
+                System.out.println("Enter Name to be updated : ");
                 String empName = br.readLine();
-                System.out.println(dataManager.updateEmployeeName(employee.getEmpNo(), empName));
+                dataManager.updateEmployeeName(employee.getEmpNo(), empName);
                 break;
 
             case 2:
+                System.out.println("Enter department to be updated : ");
                 String department = br.readLine();
-                System.out.println(dataManager.updateEmployeeDepartment(employee.getEmpNo(), department));
+                dataManager.updateEmployeeDepartment(employee.getEmpNo(), department);
                 break;
 
             case 3:
+                System.out.println("Enter skill to be added : ");
                 String skill = br.readLine();
-                System.out.println(dataManager.updateEmployeeSkillSet(employee.getEmpNo(), skill));
+                dataManager.updateEmployeeSkillSet(employee.getEmpNo(), skill);
                 break;
 
             default:
@@ -115,18 +123,17 @@ public class DriverEmployee {
         dataManager.addEmployee(employee);
     }
 
-    private int empNo;
-    private int qualityOfWork;
-    private int attendance;
-    private int initiative;
-    private String remark;
-    public void fillAppraisalForm(int empNo) throws IOException {
+    public void fillAppraisalForm(int empNo) throws IOException, SQLException {
         System.out.println("Rate in qualityOfWork");
         int qualityOfWork = Integer.parseInt(br.readLine());
+
+        System.out.println("Rate in attendance");
+        int attendance = Integer.parseInt(br.readLine());
 
         System.out.println("Rate in initiative");
         int initiative = Integer.parseInt(br.readLine());
 
-
+        EmployeeAppraisalForm employeeAppraisalForm = new EmployeeAppraisalForm(empNo, qualityOfWork, attendance, initiative, null);
+        dataManager.fillAppraisalForm(employeeAppraisalForm);
     }
 }

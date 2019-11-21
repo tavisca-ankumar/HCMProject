@@ -8,6 +8,14 @@ public class EmployeeAppraisalForm {
     private int initiative;
     private String remark;
 
+    public EmployeeAppraisalForm(int empNo, int qualityOfWork, int attendance, int initiative, String remark) {
+        this.empNo = empNo;
+        this.qualityOfWork = qualityOfWork;
+        this.attendance = attendance;
+        this.initiative = initiative;
+        this.remark = remark;
+    }
+
     public int getEmpNo() {
         return empNo;
     }

@@ -12,7 +12,6 @@ public class PropertyFileReader {
         Properties prop = new Properties();
         InputStream input = null;
         try {
-            System.out.println(getClass().getClassLoader());
             input = new FileInputStream("resources/config.properties");
 
 

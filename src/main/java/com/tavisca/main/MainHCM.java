@@ -14,7 +14,12 @@ import java.sql.SQLException;
 public class MainHCM {
 
     public static void main(String[] args) {
+
         DriverProgram driverProgram = new DriverProgram();
-        driverProgram.executeApplication();
+        try {
+            driverProgram.executeApplication();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

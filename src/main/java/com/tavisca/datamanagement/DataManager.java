@@ -1,6 +1,7 @@
 package com.tavisca.datamanagement;
 
 import com.tavisca.container.Employee;
+import com.tavisca.container.EmployeeAppraisalForm;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -23,4 +24,6 @@ public interface DataManager {
 
     boolean deleteEmployee(int empNo) throws SQLException;
     boolean addEmployee(Employee employee) throws SQLException;
+
+    void fillAppraisalForm(EmployeeAppraisalForm employeeAppraisalForm) throws SQLException;
 }

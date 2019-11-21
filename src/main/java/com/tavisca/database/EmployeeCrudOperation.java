@@ -124,7 +124,7 @@ public class EmployeeCrudOperation {
 
     public boolean updateEmployeeName(int empNo, String empName) throws SQLException {
 
-        PreparedStatement preparedStatement = conn.prepareStatement("update employee set empName = ? " +
+        PreparedStatement preparedStatement = conn.prepareStatement("update employee set empName=? " +
                 "where empNo=?");
         preparedStatement.setString(1,empName);
         preparedStatement.setInt(2, empNo);
